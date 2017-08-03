@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:mahnunchik/markerclustererplus.git"
+    "url": "git@github.com:nesterenkos/markerclustererplus.git"
   },
   "main": "dist/markerclusterer.js",
   "scripts": {
