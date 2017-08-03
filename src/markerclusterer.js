@@ -147,9 +147,6 @@ ClusterIcon.prototype.onAdd = function () {
        * @param {Cluster} c The cluster that was clicked.
        * @event
        */
-      google.maps.event.trigger(mc, "click", cClusterIcon.cluster_);
-      google.maps.event.trigger(mc, "clusterclick", cClusterIcon.cluster_); // deprecated name
-
       // The default click handler follows. Disable it by setting
       // the zoomOnClick property to false.
       if (mc.getZoomOnClick()) {
@@ -159,6 +156,9 @@ ClusterIcon.prototype.onAdd = function () {
         mc.getMap().fitBounds(theBounds);
         // There is a fix for Issue 170 here:
         setTimeout(function () {
+          google.maps.event.trigger(mc, "click", cClusterIcon.cluster_);
+          google.maps.event.trigger(mc, "clusterclick", cClusterIcon.cluster_); // deprecated name
+
           mc.getMap().fitBounds(theBounds);
           // Don't zoom beyond the max zoom level
           if (mz !== null && (mc.getMap().getZoom() > mz)) {
